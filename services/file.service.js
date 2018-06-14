@@ -17,21 +17,21 @@ const findAndRemove = () => {
                 res.map((file) => {
                     let path = file.path;
     
-                    if (fs.existsSync()) {
-                        console.log(file.path);
-                        fs.unlinkSync(file.path);
+                    if (fs.existsSync(path)) {
+                        fs.unlinkSync(path);
                     }
+
                     file.remove((err) => {
                         if (err) {
                             console.error(chalk.red('Unexpected error happened during deleting file.'));
                             console.log(err);
                         } else {
-                            console.info(chalk.yellow('file: "' + path + '" was deleted successfully'));
+                            console.info(chalk.yellow('file: "' + path + '" was deleted successfully.'));
                         }
-                    })
-                })
+                    });
+                });
             }
-        })
+        });
 }
 
 module.exports = () => {
