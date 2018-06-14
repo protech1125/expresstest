@@ -7,6 +7,7 @@ const mongoose = require('./config/mongoose');
 require('./models').loadModels();
 require('./config/express')(app);
 require('./routes')(app);
+require('./services/file.service')();
 
 mongoose.connect();
 process.on('SIGINT', () => {

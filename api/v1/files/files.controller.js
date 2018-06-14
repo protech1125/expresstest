@@ -10,7 +10,6 @@ const multer = require('multer'),
     
     config = require('../../../config/environment'),
     { handle404, handleError } = require('../response.helper');
-    
 
 exports.index = (req, res) => {
     FileModel.find({}, (err, files) => {
@@ -49,7 +48,11 @@ exports.upload = (req, res) => {
     let fullPath = null,
         fileName = null,
         originalName = null,
-        expiryDate = 1;
+        expiryDays = config.fileExpiryDays;
+
+    if (req.params.expiryDays) {
+        expiryDays = req.params.expiryDays;
+    }
 
     const storage = multer.diskStorage({
         destination: pathConfig,
@@ -79,7 +82,8 @@ exports.upload = (req, res) => {
             name: fileName,
             originalName: originalName,
             path: fullPath,
-            expiryDate: expiryDate
+            expiryDays: expiryDays,
+            expiryAt: moment().add(expiryDays, 'day')
         };
 
         const fileModel = new FileModel(file);

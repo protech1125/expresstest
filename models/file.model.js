@@ -19,11 +19,15 @@ const FileSchema = new Schema({
         required: true
     },
 
-    expiryDate: {
+    expiryDays: {
         type: Number,
     },
 
-    uploadTime: {
+    expiryAt: {
+        type: Date,
+    },
+
+    uploadedAt: {
         type: Date,
         default: Date.now
     },
