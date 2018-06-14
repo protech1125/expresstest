@@ -7,7 +7,9 @@ const all = {
     root: path.normalize(__dirname + '/../..'),
     port: process.env.PORT || 3000,
 
-    docPath: process.env.DOCPATH || '/Volumes/Doc'
+    filePath: process.env.FilePath || '/Volumes/Work/Files',
+
+    isWindow: /^win/.test(process.platform)
 }
 
 module.exports = _.merge(

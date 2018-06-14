@@ -1,22 +1,22 @@
 
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
+const mongoose = require('./config/mongoose');
 
-const config = require('./config/environment');
-
-// DB connection
-mongoose.connect(config.mongo.uri, config.mongo.options);
-
-process.on('SIGINT', () => {
-  mongoose.connection.close(() => {
-    console.log('Mongoose connection terminated');
-    process.exit(0);
-  })
-})
-
+require('./models').loadModels();
 require('./config/express')(app);
 require('./routes')(app);
+
+mongoose.connect();
+process.on('SIGINT', () => {
+  mongoose.disconnect((err) => {
+    if (err) {
+      console.log(err);
+    }
+
+    process.exit(0);
+  });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

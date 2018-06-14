@@ -6,6 +6,7 @@ module.exports = {
         port: 27017,
         uri: 'mongodb://localhost:27017/filedb',
         username: 'root',
+        debug: true,
         options: {
 
         }
