@@ -19,7 +19,13 @@ module.exports = (app) => {
     app.use(bodyParser.json());
     app.use(cookieParser());
 
-    if ('development' === env) {
+    if ('development' === env || 'test' === env) {
+        app.use(express.static(path.join(config.root, '.tmp')));
+        app.use(express.static(path.join(config.root, 'public')));
+        app.use(morgan('dev'));
+    }
+
+    if ('prodction' === env ) {
         app.use(express.static(path.join(config.root, 'public')));
         app.use(morgan('dev'));
     }

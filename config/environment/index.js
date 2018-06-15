@@ -12,7 +12,7 @@ const all = {
     filePath: process.env.FilePath || '/Volumes/Work/Files',
     fileExpiryDays: 1,
     intervalDelay: 1000 * 60 * 60,
-
+    
     isWindow: /^win/.test(process.platform)
 }
 

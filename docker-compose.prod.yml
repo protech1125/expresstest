@@ -1,0 +1,16 @@
+version: "2"
+services: 
+  api:
+    container_name: api
+    restart: always
+    build: 
+      context: .
+      dockerfile: prod.Dockerfile
+    volumes:
+     - .:/usr/src/app
+    ports:
+     - "3000:3000"
+    environment:
+     - MONGO_URI=mongodb://192.168.3.221:27017/filedb
+     - MONGO_USERNAME=
+     - MONGO_PASSWORD=
