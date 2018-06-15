@@ -9,7 +9,7 @@ const all = {
     root: path.normalize(__dirname + '/../..'),
     port: process.env.PORT || 3000,
 
-    filePath: process.env.FilePath || '/Volumes/Work/Files',
+    filePath: process.env.FilePath || '/Volumes/Work/Volumes',
     fileExpiryDays: 1,
     intervalDelay: 1000 * 60 * 60,
     

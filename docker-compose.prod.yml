@@ -11,6 +11,7 @@ services:
     ports:
      - "3000:3000"
     environment:
+     - FilePath=/usr/src/app/Volumes
      - MONGO_URI=mongodb://192.168.3.221:27017/filedb
      - MONGO_USERNAME=
      - MONGO_PASSWORD=

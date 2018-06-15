@@ -9,6 +9,7 @@ services:
     ports:
      - "3000:3000"
     environment:
+     - FilePath=/usr/src/app/Volumes
      - MONGO_HOST=mongo
      - MONGO_URI=mongodb://mongo:27018/filedb
     links:
