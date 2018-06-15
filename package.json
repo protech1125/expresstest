@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "start:prod": "node ./bin/www",
+    "start": "node ./bin/www",
+    "start:dev": "nodemon ./bin/www",
     "start:docker": "docker-compose up",
     "stop:docker": "docker-compose down",
     "start:docker-prod": "docker-compose -f docker-compose.prod.yml up",

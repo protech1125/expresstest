@@ -11,8 +11,8 @@ npm install
 After installing npm packages, you can run commands below.
 
 ```
-npm start               // run app in development mode locally.
-npm start:prod          // run app in production mode locally.
+npm start               // run app locally.
+npm start:dev          // run app by nodemon locally, automatically restart app if any file changes
 npm start:docker        //  build and run app in development mode inside docker container.
 npm stop:docker         //  stop and remove containers created by start:docker.
 npm start:docker-prod   // build and run app on docker container in production mode.

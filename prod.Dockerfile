@@ -11,4 +11,4 @@ RUN npm install --production
 COPY . /usr/src/app
 EXPOSE $PORT
 
-CMD ["npm", "run", "start:prod", "--production"]
+CMD ["npm", "start", "--production"]
